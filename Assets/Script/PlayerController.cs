@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
         inputHandler = GetComponent<PlayerInputHandler>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         movementInputValue = -inputHandler.movementInput.y;
         UpdateSpeed();
