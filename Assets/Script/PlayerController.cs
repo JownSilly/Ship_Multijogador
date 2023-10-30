@@ -1,29 +1,53 @@
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 180f;
     [SerializeField] private float decelerationRate = 2f;
-
+    private Vector2 _moveDirection;
     private PlayerInputHandler inputHandler;
     private Rigidbody2D rb;
     private float movementInputValue;
     private float currentSpeed;
 
-    private void Awake()
+    public override void OnNetworkSpawn()
     {
+        if (!IsOwner) gameObject.GetComponent<PlayerInput>().enabled = false;
+    }
+    private void Start()
+    {
+        
         rb = GetComponent<Rigidbody2D>();
+        _moveDirection = Vector2.zero;
         inputHandler = GetComponent<PlayerInputHandler>();
+        
+        
+    }
+
+    [ServerRpc]
+    public void MoveServerRpc(Vector2 move)
+    {
+        _moveDirection = move.normalized;
     }
 
     private void FixedUpdate()
     {
+        if(IsClient)
+        Debug.Log("cLIENT" + inputHandler.movementInput);
+        if (IsHost)
+        {
+            Debug.Log("HOST" + inputHandler.movementInput);
+        }
+        
         movementInputValue = -inputHandler.movementInput.y;
         UpdateSpeed();
-        Move();
-        Turn();
+
+            
+            Move();
+            Turn();
     }
 
     private void UpdateSpeed()

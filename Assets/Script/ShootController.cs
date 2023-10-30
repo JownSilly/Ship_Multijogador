@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class ProjectileController : MonoBehaviour
+public class ProjectileController : NetworkBehaviour
 {
     public float speed = 20f; // Velocidade do projétil
     public float lifetime = 5f; // Tempo de vida do projétil antes da destruição

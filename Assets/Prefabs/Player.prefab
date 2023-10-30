@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8884008295942410240}
   - component: {fileID: 2756243390592176929}
   - component: {fileID: 4061620650357801486}
+  - component: {fileID: 6760310904517819417}
   - component: {fileID: 499899487578299268}
   - component: {fileID: 123714528226731918}
-  - component: {fileID: 6760310904517819417}
   - component: {fileID: 6256008335319202588}
   - component: {fileID: 6927638941863815923}
   m_Layer: 0
@@ -300,6 +300,26 @@ MonoBehaviour:
   movementInput: {x: 0, y: 0}
   LeftFired: 0
   RightFired: 0
+--- !u!114 &6760310904517819417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506718683895462667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1274666415
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!114 &499899487578299268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,26 +351,6 @@ MonoBehaviour:
   leftFirePoint: {fileID: 2760575262167390997}
   rightFirePoint: {fileID: 3744144384985673571}
   fireRate: 1.5
---- !u!114 &6760310904517819417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3506718683895462667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 437981221
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!114 &6256008335319202588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,8 +366,8 @@ MonoBehaviour:
   SyncPositionX: 1
   SyncPositionY: 1
   SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
+  SyncRotAngleX: 0
+  SyncRotAngleY: 0
   SyncRotAngleZ: 1
   SyncScaleX: 0
   SyncScaleY: 0
