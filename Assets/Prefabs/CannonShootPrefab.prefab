@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 584729395735870134}
   - component: {fileID: 3132548806608921076}
   - component: {fileID: 3793191132243991387}
-  - component: {fileID: -7643141544737305532}
   - component: {fileID: 6515332033763463206}
+  - component: {fileID: -7643141544737305532}
   - component: {fileID: 4814928098966360438}
   - component: {fileID: 3014422352167653150}
   m_Layer: 0
@@ -153,20 +153,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.08
---- !u!114 &-7643141544737305532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2392880984896286827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15d3f245cd30c3941a6e5e4ddd4480a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifetime: 3
 --- !u!114 &6515332033763463206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +173,19 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &-7643141544737305532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392880984896286827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d3f245cd30c3941a6e5e4ddd4480a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &4814928098966360438
 MonoBehaviour:
   m_ObjectHideFlags: 0

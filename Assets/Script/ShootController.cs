@@ -4,11 +4,11 @@ using Unity.Netcode;
 public class ShootController : NetworkBehaviour
 {
     private Rigidbody2D rb;
-
+    public float damage = 10f;
     private void Start()
     {
         if (IsServer)
-            Invoke(nameof(DestroyBullet), 5f);
+            Invoke(nameof(DestroyBullet), 2f);
     }
 
     private void FixedUpdate()
@@ -41,16 +41,20 @@ public class ShootController : NetworkBehaviour
             bulletRb.velocity = velocity;
         }
     }
-    /*private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Verifica se colidiu com outro jogador
-        if (other.CompareTag("Player"))
+        if (IsServer)
         {
-            // Colocar aqui a lógica de dano ou efeitos de colisão, se necessário
-
-            // Destroi o projétil
-            Destroy(gameObject);
+            PlayerController player = other.GetComponent<PlayerController>();
+            if(player != null)
+            {
+              
+                player.ApplyDamage(damage);
+                DestroyBullet();
+            }
         }
+            
+        
     }
-    */
+    
 }

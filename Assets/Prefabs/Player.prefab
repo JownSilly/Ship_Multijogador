@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4211352380
+  GlobalObjectIdHash: 1274666415
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -331,13 +331,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a643bab188c3ce940bf8a413064b7596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health:
+    m_InternalValue: 30
   moveSpeed: 4
   rotationSpeed: 160
   bulletPrefab: {fileID: 2392880984896286827, guid: bbb85b31b05249c42878dd804141905f, type: 3}
   leftFirePoint: {fileID: 2760575262167390997}
   rightFirePoint: {fileID: 3744144384985673571}
   bulletSpeed: 10
-  fireRate: 0.5
+  fireRate: 1
 --- !u!114 &6256008335319202588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5409506149834887923}
   m_LocalRotation: {x: 0, y: 0, z: -0.3420201, w: 0.9396927}
-  m_LocalPosition: {x: 0.39, y: -0.236, z: 0}
+  m_LocalPosition: {x: 0.498, y: -0.309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -435,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6999623015572282117}
   m_LocalRotation: {x: 0, y: 0, z: -0.9396926, w: 0.34202018}
-  m_LocalPosition: {x: -0.398, y: -0.236, z: 0}
+  m_LocalPosition: {x: -0.489, y: -0.309, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -3,6 +3,8 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 public class PlayerController : NetworkBehaviour
 {
+    //Atributos
+    public NetworkVariable<float> health = new NetworkVariable<float>(30f);
     //Movement
     public float moveSpeed = 5f;
     public float rotationSpeed = 100f;
@@ -60,8 +62,23 @@ public class PlayerController : NetworkBehaviour
         go.GetComponent<NetworkObject>().Spawn();
         var bullet = go.GetComponent<ShootController>();
         bullet.SetVelocity(go.transform.right * bulletSpeed);
-        
-        
+
+       
+    }
+    public void ApplyDamage(float damage)
+    {
+        if (IsServer)
+        {
+            if(health.Value <= 0)
+            {
+                Debug.Log("Morreu");
+                Destroy(gameObject);
+            }
+            else{
+                health.Value -= damage;
+            }
+            
+        }
     }
     private void FixedUpdate()
     {
