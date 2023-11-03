@@ -1,37 +1,46 @@
 using UnityEngine;
 using Unity.Netcode;
 
-public class ProjectileController : NetworkBehaviour
+public class ShootController : NetworkBehaviour
 {
-    public float speed = 20f; // Velocidade do projétil
-    public float lifetime = 5f; // Tempo de vida do projétil antes da destruição
-    private float currentLifetime = 0f; // Tempo de vida atual do projétil
-
     private Rigidbody2D rb;
 
     private void Start()
     {
-        currentLifetime = 0f;
-        rb = GetComponent<Rigidbody2D>();
-
-        // Aplica a velocidade inicial ao projétil
-        rb.velocity = transform.right * speed;
+        if (IsServer)
+            Invoke(nameof(DestroyBullet), 5f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        // Define a velocidade inicial do projétil
+        if (IsServer)
+            transform.right = GetComponent<Rigidbody2D>().velocity;
+    }
+    public void DestroyBullet()
+    {
+        if (!NetworkObject.IsSpawned)return;
         
-        // Atualiza o tempo de vida atual do projétil
-        currentLifetime += Time.deltaTime;
-
-        // Destroi o projétil se o tempo de vida atual exceder o tempo de vida máximo
-        if (currentLifetime >= lifetime)
+        NetworkObject.Despawn();
+    }
+    public void SetVelocity(Vector2 velocity)
+    {
+        if (IsServer)
         {
-            Destroy(gameObject);
+            var bulletRb = GetComponent<Rigidbody2D>();
+            bulletRb.velocity = velocity;
+            SetVelocityClientRpc(velocity);
+        }
+            
+    }
+    [ClientRpc]
+    void SetVelocityClientRpc(Vector2 velocity)
+    {
+        if (!IsHost)
+        {
+            var bulletRb = GetComponent<Rigidbody2D>();
+            bulletRb.velocity = velocity;
         }
     }
-
     /*private void OnTriggerEnter2D(Collider2D other)
     {
         // Verifica se colidiu com outro jogador
